@@ -84,7 +84,7 @@ console.log("[DEBUG] All environment variables:", process.env);
 // Run function
 console.log(
   "[DEBUG] Environment variables loaded:",
-  Object.keys(process.env).filter((key) => key.startsWith("personality."))
+  Object.keys(process.env).filter((key) => key.startsWith("PERSONALITY_"))
 );
 initPersonalities(state.personalities, process.env);
 console.log(
