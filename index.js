@@ -78,6 +78,9 @@ let state = {
   slowModeTimer: {},
 };
 
+// Debug: Log all environment variables
+console.log("[DEBUG] All environment variables:", process.env);
+
 // Run function
 console.log(
   "[DEBUG] Environment variables loaded:",

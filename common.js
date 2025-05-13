@@ -16,6 +16,15 @@ function initPersonalities(personalities, env) {
       });
     }
   });
+
+  // Fallback: Add a default personality if none are loaded
+  if (personalities.length === 0) {
+    console.log("[DEBUG] No personalities found. Adding default personality.");
+    personalities.push({
+      name: "default",
+      request: [{ role: "system", content: "You are a helpful assistant." }],
+    });
+  }
   console.log(
     "[DEBUG] Personalities loaded:",
     personalities.map((p) => p.name)
