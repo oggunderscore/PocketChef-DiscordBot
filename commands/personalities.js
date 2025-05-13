@@ -20,9 +20,16 @@ module.exports = {
       ) || false;
 
     if (!hasManageMessagesPermission && state.isPaused === true) {
+      console.log("[DEBUG] Bot is paused. Command execution denied.");
       await interaction.reply(process.env.DISABLED_MSG);
       return;
     }
+
+    console.log(
+      "[DEBUG] Listing personalities:",
+      state.personalities.map((p) => p.name)
+    );
+
     // Create an embed object
     let persEmbed = new EmbedBuilder()
       .setColor(0x0099ff) // set the color of the embed
@@ -58,5 +65,6 @@ module.exports = {
     }
     // Send variable
     interaction.reply({ embeds: [persEmbed] });
+    console.log("[DEBUG] Personalities embed sent.");
   },
 };
