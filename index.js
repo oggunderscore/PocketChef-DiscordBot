@@ -79,9 +79,13 @@ let state = {
 };
 
 // Run function
+console.log(
+  "[DEBUG] Environment variables loaded:",
+  Object.keys(process.env).filter((key) => key.startsWith("personality."))
+);
 initPersonalities(state.personalities, process.env);
 console.log(
-  "[DEBUG] Personalities loaded:",
+  "[DEBUG] Personalities initialized:",
   state.personalities.map((p) => p.name)
 );
 
